@@ -45,5 +45,69 @@ int main(void)
         }
     }
     while (c != 0);
+
+    // free list before quitting
+    node *ptr = first;
+    while (ptr != NULL)
+    {
+        node *predptr = ptr;
+        ptr = ptr->next;
+        free(predptr);
+    }
+    return 0;
+}
+
+
+/*
+ * Tries to delete a student
+ */
+void delete(void)
+{
+    // promt user for ID
+    int n;
+    printf("ID to delete: ");
+    scanf(" %d ", &n);
+
+    // get list's first node
+    node *ptr = first;
+
+    // try to delete student from list
+    node *predptr = NULL;
+    while (ptr != NULL)
+    {
+        // check for ID
+        if (ptr->student->id == n)
+        {
+            // delete from head
+            if (ptr == first)
+            {
+                first = ptr->next;
+                free(ptr->student->name);
+                free(ptr->student->house);
+                free(ptr->student);
+                free(ptr);
+            }
+            // delete from middle or tail
+            else
+            {
+                predptr->next = ptr->next;
+                if (ptr->student->name != NULL)
+                    free(ptr->student->name);
+                if (ptr->student->house != NULL)
+                    free(ptr->student->house);
+                free(ptr->student);
+                free(ptr);
+            }
+            // all done
+            break;
+        }
+        else
+        {
+            predptr = ptr;
+            ptr = ptr->next;
+        }
+    }
+    // traverse list
+    traverse();
 }
 
