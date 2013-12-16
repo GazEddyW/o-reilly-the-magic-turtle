@@ -37,7 +37,7 @@ int main(void)
         // execute command
         switch (c)
         {
-            case 0: printf("\n\nBYE!\n\n");
+            case 0: printf("\n\nBYE!\n\n"); break;
             case 1: delete(); break;
             case 2: find(); break;
             case 3: insert(); break;
