@@ -32,16 +32,17 @@ int main(void)
 
         // get command
         printf("Command: ");
-        scanf(" %d ", &c);
+        scanf(" %d", &c);
 
         // execute command
         switch (c)
         {
+            case 0: printf("\n\nBYE!\n\n");
             case 1: delete(); break;
             case 2: find(); break;
             case 3: insert(); break;
             case 4: traverse(); break;
-            default: printf("Invalid choice...\n");
+            default: printf("\nInvalid choice...\n");
         }
     }
     while (c != 0);
@@ -66,7 +67,7 @@ void delete(void)
     // promt user for ID
     int n;
     printf("ID to delete: ");
-    scanf(" %d ", &n);
+    scanf(" %d", &n);
 
     // get list's first node
     node *ptr = first;
@@ -135,11 +136,11 @@ void insert(void)
 
     // try to initialise student
     printf("Student's ID: ");
-    scanf(" %d ", &(newptr->student->id));
+    scanf(" %d", &(newptr->student->id));
     printf("Student's name: ");
-    scanf(" %s %s ", newptr->student->name);
+    scanf(" %s", newptr->student->name);
     printf("Student's house: ");
-    scanf(" %s %s ", newptr->student->house);
+    scanf(" %s", newptr->student->house);
     if (newptr->student->name == NULL || newptr->student->house== NULL)
     {
         if (newptr->student->name != NULL)
@@ -207,7 +208,7 @@ void find(void)
     // prompt user for ID
     printf("ID to find: ");
     int id;
-    scanf(" %d ", &id);
+    scanf(" %d", &id);
 
     // get list's firstnode
     node *ptr = first;
