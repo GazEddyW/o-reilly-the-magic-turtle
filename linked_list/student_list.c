@@ -29,7 +29,7 @@ int main(void)
 
         // get command
         printf("Command: ");
-        scanf(" %d", &c);
+        c = getInt();
 
         // execute command
         switch (c)
@@ -62,9 +62,8 @@ int main(void)
 void delete(void)
 {
     // promt user for ID
-    int n;
     printf("ID to delete: ");
-    scanf(" %d", &n);
+    int n = getInt();
 
     // get list's first node
     node *ptr = first;
@@ -131,11 +130,14 @@ void insert(void)
         return;
     }
 
+    fflush(stdin);
     // try to initialise student
     printf("Student's ID: ");
-    scanf(" %d", &(newptr->student->id));
+    newptr->student->id = getInt();
+    fflush(stdin);
     printf("Student's name: ");
     newptr->student->name = getString();
+    fflush(stdin);
     printf("Student's house: ");
     newptr->student->house = getString();
 
@@ -205,8 +207,7 @@ void find(void)
 {
     // prompt user for ID
     printf("ID to find: ");
-    int id;
-    scanf(" %d", &id);
+    int id = getInt();
 
     // get list's firstnode
     node *ptr = first;

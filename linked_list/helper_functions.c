@@ -7,6 +7,33 @@
 #include "helper_functions.h"
 
 
+int getInt(void)
+{
+    // try to get an int from the user
+    while (1)
+    {
+        char *line = getString();
+        if (line == NULL)
+            return INT_MAX;
+
+        // return an int if only an int (possibly with leading
+        // and / or trailing whitespace) was provided
+        int n;
+        char c;
+        if (sscanf(line, " %d %c", &n, &c) == 1)
+        {
+            free(line);
+            return n;
+        }
+        else
+        {
+            free(line);
+            printf("Retry: ");
+        }
+    }
+}
+
+
 char* getString(void)
 {
     // growable buffer for chars
