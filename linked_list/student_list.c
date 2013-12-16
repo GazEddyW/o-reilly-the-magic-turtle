@@ -1,9 +1,6 @@
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-
 #include "student_list.h"
+#include "helper_functions.h"
 
 
 // Linked List
@@ -138,9 +135,10 @@ void insert(void)
     printf("Student's ID: ");
     scanf(" %d", &(newptr->student->id));
     printf("Student's name: ");
-    scanf(" %s", newptr->student->name);
+    newptr->student->name = getString();
     printf("Student's house: ");
-    scanf(" %s", newptr->student->house);
+    newptr->student->house = getString();
+
     if (newptr->student->name == NULL || newptr->student->house== NULL)
     {
         if (newptr->student->name != NULL)
