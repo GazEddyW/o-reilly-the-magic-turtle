@@ -11,8 +11,8 @@ $(OUTPUT): student_list.o helper_functions.o
 	$(CC) student_list.o helper_functions.o -o $(OUTPUT)
 
 student_list.o: student_list.c
-	$(CC) $(CFLAGS) student_list.c student_list.h
+	$(CC) $(CFLAGS) student_list.c
 
 helper_functions.o: helper_functions.c
-	$(CC) $(CFLAGS) helper_functions.c helper_functions.h
+	$(CC) $(CFLAGS) helper_functions.c
 
