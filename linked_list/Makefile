@@ -1,6 +1,6 @@
 
 CC = gcc
-FILES = helper_functions.c student_list.c helper_functions.h student_list.h
+FILES = helper_functions.c student_list.c
 OUTPUT = student_list
 CFLAGS = -c -ggdb -std=c99 -Wall -Werror
 LDFLAGS = -lm
